@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+  <link rel="shortcut icon" href="https://icon-icons.com/downloadimage.php?id=80615&root=1141/ICO/512/&file=1486395863-menu2_80615.ico" type="image/x-icon">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
 
@@ -16,8 +17,12 @@
     body {
       margin: 0;
       min-height: 100vh;
-      /* font-family: sans-serif; */
     }
+
+    .textoSombra {
+      text-shadow: 0 0 1.5em white, 0 0 1.5em white, 0 0 1.5em white;
+    }
+
     .bg-grad-nav {
       background-color: transparent;
     }
@@ -38,7 +43,7 @@
       position: fixed;
     }
     .imgbg div{
-      background: rgba(255, 255, 255, 0.4); 
+      background: rgba(255, 255, 255, 0.6); 
       backdrop-filter: blur(8px); 
       height: 100vh;
     }
@@ -94,7 +99,7 @@
         const styleEl = document.createElement("style");
         document.head.appendChild(styleEl);
         const styleSheet = styleEl.sheet;
-        styleSheet.insertRule('#despejo *, #despejo *::before, #despejo *::after { box-sizing: revert; font-family: sans-serif; }',styleSheet.cssRules.length);
+        styleSheet.insertRule('#despejo *, #despejo *::before, #despejo *::after { box-sizing: revert; }',styleSheet.cssRules.length);
         styleSheet.insertRule('#despejo hr { margin: revert; color: revert; border: revert; opacity: revert; }',styleSheet.cssRules.length);
         styleSheet.insertRule('.quebra {border: 1px solid #bbb;  width: fit-content;padding: .5rem;background-color: white; user-select: none;border-radius: .5rem;max-width: 90vw;display: none;top: 0;left: 0;box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.50);position: fixed;}',styleSheet.cssRules.length);
         styleSheet.insertRule('.menu {min-width: 200px;margin-block-start: 0;margin-block-end: 0;list-style-type: none;margin-inline-start: 0;margin-inline-end: 0;padding-inline-start: 0;}',styleSheet.cssRules.length);
@@ -421,7 +426,7 @@
         }
         if(this.#ehObjeto(comando)){
           let idLinkSub = id + this.#subMenus.length + 'Sub';
-          textoComando += `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/></svg></div>\n${this.#criaMenu(comando, idLinkSub)}`;
+          textoComando += `<svg xmlns="https://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/></svg></div>\n${this.#criaMenu(comando, idLinkSub)}`;
           this.#subMenus.push(idLinkSub);
         }
         if(undefined == comando){
@@ -557,7 +562,7 @@
           },
           {
             imagem: 'https://play-lh.googleusercontent.com/swjnj_pp--Lw6tJUQhk4lhwLaeScouvt2vr5gIDX5_IxCAp8WDHdLrf8xLsSI_8UnA=w240-h480-rw',
-            texto: 'mp4',
+            texto: 'MP4',
             funcao: cor2bg
           }
         ]
@@ -586,7 +591,7 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active bg-grad-nav rounded" aria-current="page" href="#">Menu de Contexto</a>
+              <a class="nav-link active bg-grad-nav rounded" aria-current="page" href="https://valeriohasman.github.io/MenuContexto/contexto.html">Menu de Contexto</a>
             </li>
             <li class="nav-item">
               <a class="nav-link bg-grad-nav rounded" href="#">Em breve</a>
@@ -599,8 +604,8 @@
                 Extras
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item bg-grad-nav rounded text-dark-emphasis" href="#"><i class="bi bi-github"></i> GitHub</a></li>
-                <li><a class="dropdown-item bg-grad-nav rounded text-dark-emphasis" href="#"><i class="bi bi-linkedin"></i> LinkdIn</a></li>
+                <li><a class="dropdown-item bg-grad-nav rounded text-dark-emphasis" href="https://github.com/ValerioHasman/"><i class="bi bi-github"></i> GitHub</a></li>
+                <li><a class="dropdown-item bg-grad-nav rounded text-dark-emphasis" target="_blank" href="https://www.linkedin.com/in/valerio-hasman/"><i class="bi bi-linkedin"></i> LinkdIn <i class="bi bi-box-arrow-up-right"></i></a></li>
               </ul>
             </li>
           </ul>
@@ -611,69 +616,17 @@
 
 
 
-  <div class="container ">
-    <div class="row">
+  <div class="container">
+    <h1 class="m-5 text-center textoSombra">Menu De Contexto <i class="bi bi-menu-button-wide"></i></h1>
+    <p class="textoSombra">Uma classe JavaScript <i class="bi bi-filetype-js"></i> que possibilita a criação de menu de contexto para inúmeros elementos.</p>
+    <h2 class="textoSombra">Usabilidade</h2>
+    <p class="textoSombra">Abaixo temos dois exemplos para esta página, clicando com o botão direito do mouse poderá exibi-las.</p>
+    <div class="row mb-4">
       <div class="col-1 rounded border border-secondary m-1" id="caixabox"></div>
       <div class="col-1 rounded border border-secondary m-1" id="caixadox"></div>
     </div>
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere voluptate similique excepturi aut quos delectus minus, saepe libero vel architecto exercitationem a, id nobis nulla sequi labore inventore consequuntur consectetur!</p>
+    <p class="textoSombra">Não somente poderá navegar usando o mouse como também poderá usar o teclado apertando as telas cima, baixo, direita, esquerda, espaço e enter intuitivamente além de poder usar teclas de atalho para acioná-las sem precisar abrir o menu.</p>
   </div>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
 </body>
 
 </html>
