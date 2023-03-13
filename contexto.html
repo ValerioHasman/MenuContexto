@@ -643,14 +643,14 @@
     <pre class="bg-white p-4 rounded" id="uAgent"></pre>
     <h3>userAgentData</h3>
     <pre class="bg-white p-4 rounded" id="uAgent2"></pre>
-    <h3>vendor</h3>
+    <h3>Extras</h3>
     <pre class="bg-white p-4 rounded" id="uAgent3"></pre>
     <br>
   </div>
   <script>
     document.getElementById('uAgent').innerHTML = navigator.userAgent;
     document.getElementById('uAgent2').innerHTML = JSON.stringify(navigator.userAgentData,0,2);
-    document.getElementById('uAgent3').innerHTML = navigator.vendor + ' - ' + navigator.vendorSub;
+    document.getElementById('uAgent3').innerHTML = 'vendor: ' + navigator.vendor + '\nvendorSub: ' + navigator.vendorSub  + '\noscpu: ' + navigator.oscpu + '\ncpuClass: ' + navigator.cpuClass + '\nappVersion' + navigator.appVersion + '\nplatform: ' + navigator.platform;
   </script>
 </body>
 
