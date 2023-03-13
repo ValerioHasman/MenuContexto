@@ -27,10 +27,10 @@
       background-color: transparent;
     }
     .bg-grad-nav:hover {
-      background: linear-gradient(315deg, rgba(0, 255, 255, 0.1) 0%, rgba(0, 0, 255, 0.1) 100%);
+      background: linear-gradient(225deg, rgba(0, 255, 255, 0.1) 0%, rgba(0, 0, 255, 0.1) 100%);
     }
     .bg-grad-nav:active {
-      background: linear-gradient(315deg, rgba(0, 255, 255, 0.15) 0%, rgba(0, 0, 255, 0.15) 100%);
+      background: linear-gradient(225deg, rgba(0, 255, 255, 0.15) 0%, rgba(0, 0, 255, 0.15) 100%);
     }
     .imgbg{
       background-image: url(https://c4.wallpaperflare.com/wallpaper/344/554/358/luz-wallpaper-preview.jpg);
@@ -605,7 +605,16 @@
               </a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item bg-grad-nav rounded text-dark-emphasis" href="https://github.com/ValerioHasman/"><i class="bi bi-github"></i> GitHub</a></li>
-                <li><a class="dropdown-item bg-grad-nav rounded text-dark-emphasis" target="_blank" href="https://www.linkedin.com/in/valerio-hasman/"><i class="bi bi-linkedin"></i> LinkdIn <i class="bi bi-box-arrow-up-right"></i></a></li>
+                <li><a class="dropdown-item bg-grad-nav rounded text-dark-emphasis" target="_blank" href="https://www.linkedin.com/in/valerio-hasman/">
+                  <div class="row justify-content-between">
+                    <div class="col-auto">
+                      <i class="bi bi-linkedin"></i> LinkdIn
+                    </div>
+                    <div class="col-auto">
+                      <i class="bi bi-box-arrow-up-right"></i>
+                    </div>
+                  </div>
+                </a></li>
               </ul>
             </li>
           </ul>
@@ -626,7 +635,23 @@
       <div class="col-1 rounded border border-secondary m-1" id="caixadox"></div>
     </div>
     <p class="textoSombra">Não somente poderá navegar usando o mouse como também poderá usar o teclado apertando as telas cima, baixo, direita, esquerda, espaço e enter intuitivamente além de poder usar teclas de atalho para acioná-las sem precisar abrir o menu.</p>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h3>userAgent</h3>
+    <pre class="bg-white p-4 rounded" id="uAgent"></pre>
+    <h3>userAgentData</h3>
+    <pre class="bg-white p-4 rounded" id="uAgent2"></pre>
+    <h3>vendor</h3>
+    <pre class="bg-white p-4 rounded" id="uAgent3"></pre>
+    <br>
   </div>
+  <script>
+    document.getElementById('uAgent').innerHTML = navigator.userAgent;
+    document.getElementById('uAgent2').innerHTML = JSON.stringify(navigator.userAgentData,0,2);
+    document.getElementById('uAgent3').innerHTML = navigator.vendor + ' - ' + navigator.vendorSub;
+  </script>
 </body>
 
 </html>
