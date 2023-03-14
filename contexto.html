@@ -50,18 +50,11 @@
 
     #caixabox {
       background: linear-gradient(312deg, rgb(24, 97, 55) 0%, rgb(201, 240, 247) 100%);
-      width: 300px;
-      height: 300px;
+      height: 15rem;
     }
     #caixadox {
       background-color: rgb(81, 99, 154);
-      width: 300px;
-      height: 300px;
-    }
-    @media screen and (max-width: 400px) {
-      #caixabox, #caixadox {
-        max-width: 90%;
-      }
+      height: 15rem;
     }
   </style>
   <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.js"></script>
@@ -78,10 +71,10 @@
       #todosIds = [];
       #ArrowLeftMenu = [];
 
-
       constructor(dados) {
         window.addEventListener("load",()=>{
           this.#DesligadorDeContexto();
+          this.#ehTelevisao()
           this.#criaEstiloPadrao();
           this.#criaDivEncapsuladora();
           this.#criaAlvo(dados);
@@ -93,6 +86,14 @@
           this.#addEventoFocos();
           this.#CriarListaParaFocus(this.#todosIds);
         });
+      }
+
+      #ehTelevisao(){
+        if(/TV/i.test(navigator.userAgent)){
+          return true;
+        } else {
+          return false;
+        }
       }
 
       #criaEstiloPadrao(){
@@ -319,8 +320,39 @@
           let menu = document.getElementById(link.alvo + 'Menu');
           alvo.addEventListener('contextmenu', (e) => { this.#contexto(e, link.alvo + 'Menu'); });
           alvo.addEventListener('contextmenu', () => { document.getElementById(link.alvo + 'Menu').querySelectorAll('li')[0].focus(); });
+          if(this.#ehTelevisao()){
+            alvo.addEventListener('mousedown', this.#longclick((e)=>{this.#contexto(e, link.alvo + 'Menu')}));
+          }
           this.#menus.push(menu);
         });
+      }
+
+      #longclick(cb){
+        var min = 1250;
+        var max = 4000;
+        var time, self, timeout, event;
+
+        function reset() {
+          clearTimeout(timeout);
+          timeout = null;
+        }
+
+        window.addEventListener('mouseup', reset);
+        return function (e) {
+          if (!self) {
+            self = this;
+            self.addEventListener('mouseup', function (e) {
+              e.stopPropagation();
+              var interval = new Date().getTime() - time;
+              if (timeout && interval > min) cb.call(self, event);
+              reset();
+            });
+          }
+          event = e;
+          time = new Date().getTime();
+
+          if (e.type == 'mousedown') timeout = setTimeout(reset, max);
+        };
       }
 
       #DesligadorDeContexto(){
@@ -630,28 +662,14 @@
     <p class="textoSombra">Uma classe JavaScript <i class="bi bi-filetype-js"></i> que possibilita a criação de menu de contexto para inúmeros elementos.</p>
     <h2 class="textoSombra">Usabilidade</h2>
     <p class="textoSombra">Abaixo temos dois exemplos para esta página, clicando com o botão direito do mouse poderá exibi-las.</p>
-    <div class="row mb-4">
-      <div class="col-1 rounded border border-secondary m-1" id="caixabox"></div>
-      <div class="col-1 rounded border border-secondary m-1" id="caixadox"></div>
+    <div class="container">
+      <div class="row mb-4 justify-content-evenly">
+        <div class="col-12 col-md-5 rounded border border-secondary mb-3" id="caixabox"></div>
+        <div class="col-12 col-md-5 rounded border border-secondary mb-3" id="caixadox"></div>
+      </div>
     </div>
     <p class="textoSombra">Não somente poderá navegar usando o mouse como também poderá usar o teclado apertando as telas cima, baixo, direita, esquerda, espaço e enter intuitivamente além de poder usar teclas de atalho para acioná-las sem precisar abrir o menu.</p>
-    <br>
-    <br>
-    <br>
-    <br>
-    <h3>userAgent</h3>
-    <pre class="bg-white p-4 rounded" id="uAgent"></pre>
-    <h3>userAgentData</h3>
-    <pre class="bg-white p-4 rounded" id="uAgent2"></pre>
-    <h3>Extras</h3>
-    <pre class="bg-white p-4 rounded" id="uAgent3"></pre>
-    <br>
   </div>
-  <script>
-    document.getElementById('uAgent').innerHTML = navigator.userAgent;
-    document.getElementById('uAgent2').innerHTML = JSON.stringify(navigator.userAgentData,0,2);
-    document.getElementById('uAgent3').innerHTML = 'vendor: ' + navigator.vendor + '\nvendorSub: ' + navigator.vendorSub  + '\noscpu: ' + navigator.oscpu + '\ncpuClass: ' + navigator.cpuClass + '\nappVersion' + navigator.appVersion + '\nplatform: ' + navigator.platform;
-  </script>
 </body>
 
 </html>
