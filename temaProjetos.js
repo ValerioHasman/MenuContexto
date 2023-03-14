@@ -14,6 +14,6 @@ function modoTema() {
 fetch('https://valeriohasman.github.io/MenuContexto/navProjetos.html')
 .then(resp => resp.text())
 .then((data) => {
-  document.body.innerHTML = data + document.body.innerHTML;
+  document.getElementById('barra').innerHTML = data;
 })
 .catch(err=>{console.log(err)});
