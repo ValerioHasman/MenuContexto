@@ -254,41 +254,15 @@ class menuContexto {
       document.getElementById('despejo').innerHTML += this.#criaMenu(link.dado, link.alvo);
       let alvo= document.getElementById(link.alvo);
       let menu = document.getElementById(link.alvo + 'Menu');
-      alvo.addEventListener('contextmenu', (e) => { this.#contexto(e, link.alvo + 'Menu'); });
-      alvo.addEventListener('contextmenu', () => { document.getElementById(link.alvo + 'Menu').querySelectorAll('li')[0].focus(); });
       if(this.#ehTelevisao()){
-        alvo.addEventListener('mousedown', this.#longclick((e)=>{this.#contexto(e, link.alvo + 'Menu')}));
+        alvo.addEventListener('dblclick', (e) => { this.#contexto(e, link.alvo + 'Menu'); console.log(e);});
+        alvo.addEventListener('dblclick', () => { document.getElementById(link.alvo + 'Menu').querySelectorAll('li')[0].focus(); });
+      } else {
+        alvo.addEventListener('contextmenu', (e) => { this.#contexto(e, link.alvo + 'Menu'); });
+        alvo.addEventListener('contextmenu', () => { document.getElementById(link.alvo + 'Menu').querySelectorAll('li')[0].focus(); });
       }
       this.#menus.push(menu);
     });
-  }
-
-  #longclick(cb){
-    var min = 1250;
-    var max = 4000;
-    var time, self, timeout, event;
-
-    function reset() {
-      clearTimeout(timeout);
-      timeout = null;
-    }
-
-    window.addEventListener('mouseup', reset);
-    return function (e) {
-      if (!self) {
-        self = this;
-        self.addEventListener('mouseup', function (e) {
-          e.stopPropagation();
-          var interval = new Date().getTime() - time;
-          if (timeout && interval > min) cb.call(self, event);
-          reset();
-        });
-      }
-      event = e;
-      time = new Date().getTime();
-
-      if (e.type == 'mousedown') timeout = setTimeout(reset, max);
-    };
   }
 
   #DesligadorDeContexto(){

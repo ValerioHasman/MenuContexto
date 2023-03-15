@@ -316,7 +316,7 @@
     <h1 class="m-5 text-center">Menu De Contexto <i class="bi bi-menu-button-wide"></i></h1>
     <p>Uma classe JavaScript <i class="bi bi-filetype-js"></i> que possibilita a criação de menu de contexto para inúmeros elementos.</p>
     <h2>Usabilidade</h2>
-    <p>Abaixo temos dois exemplos para esta página, clicando com o botão direito do mouse poderá exibi-las.</p>
+    <p>Abaixo temos dois exemplos para esta página, clicando com o botão direito do mouse poderá exibi-las.<span class="fst-italic" id="tv"></span></p>
     <div class="container">
       <div class="row mb-4 justify-content-evenly">
         <div class="col-12 col-md-5 rounded border border-secondary mb-3" id="caixabox"></div>
@@ -325,6 +325,11 @@
     </div>
     <p>Não somente poderá navegar usando o mouse como também poderá usar o teclado apertando as telas cima, baixo, direita, esquerda, espaço e enter intuitivamente além de poder usar teclas de atalho para acioná-las sem precisar abrir o menu.</p>
   </div>
+  <script>
+    if(/TV/i.test(navigator.userAgent)){
+      document.getElementById('tv').innerHTML += " Mas por estar em uma TV terá que dar duplo click.";
+    }
+  </script>
 </body>
 
 </html>
