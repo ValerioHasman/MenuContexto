@@ -16,7 +16,7 @@
 .bg-grad-nav {
   background-color: transparent;
 }
-.bg-grad-nav:hover {
+.bg-grad-nav:hover, .bg-grad-nav:focus {
   background: linear-gradient(225deg, rgba(0, 255, 255, 0.1) 0%, rgba(0, 0, 255, 0.1) 100%);
 }
 .bg-grad-nav:active {
