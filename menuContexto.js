@@ -257,6 +257,7 @@ class menuContexto {
       if(this.#ehTelevisao()){
         alvo.addEventListener('dblclick', (e) => { this.#contexto(e, link.alvo + 'Menu'); console.log(e);});
         alvo.addEventListener('dblclick', () => { document.getElementById(link.alvo + 'Menu').querySelectorAll('li')[0].focus(); });
+        window.alert('Acho que pode não funcionar por aqui...');
       } else {
         alvo.addEventListener('contextmenu', (e) => { this.#contexto(e, link.alvo + 'Menu'); });
         alvo.addEventListener('contextmenu', () => { document.getElementById(link.alvo + 'Menu').querySelectorAll('li')[0].focus(); });
