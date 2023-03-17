@@ -1,4 +1,4 @@
-class menuContexto {
+class MenuContexto {
   #menus = [];
   #subMenus = [];
   #itemListas = [];
