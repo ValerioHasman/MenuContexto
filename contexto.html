@@ -22,7 +22,7 @@
   </style>
   <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.js"></script>
   <script defer src="https://getbootstrap.com/docs/5.3/assets/js/color-modes.js"></script>
-  <script src="https://valeriohasman.github.io/MenuContexto/menuContexto.js"></script>
+  <script src="https://valeriohasman.github.io/MenuContexto/MenuContexto.js"></script>
   <script>
 
     var erros = [];
@@ -150,7 +150,10 @@
           ]
         }
       ];
-      new menuContexto([{ alvo: 'caixadox', dado: dadosParaOMenu},{ alvo: 'caixabox', dado: dadosParaOutro}]);
+      
+      window.addEventListener('DOMContentLoaded',()=>{
+        new MenuContexto([{ alvo: 'caixadox', dado: dadosParaOMenu},{ alvo: 'caixabox', dado: dadosParaOutro}]);
+      })
 
 
     } catch (err) {
@@ -371,7 +374,9 @@
   <script>
     if(/TV/i.test(navigator.userAgent)){
       document.getElementById('tv').innerHTML += " Mas por estar em uma TV terá que dar duplo click.";
-      document.getElementById('botaohtv').hidden = false;
+      if(erros.length > 0){
+        document.getElementById('botaohtv').hidden = false;
+      }
     }
     function setPre(){
       document.getElementById('preErr').innerHTML = JSON.stringify(erros,0,2);
