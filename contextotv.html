@@ -23,7 +23,9 @@
   <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.js"></script>
   <script defer src="https://getbootstrap.com/docs/5.3/assets/js/color-modes.js"></script>
   <script>
-    var erros = [];
+    var erros = [{inicio: 'Iniciado'}];
+
+    try {
 
     window.addEventListener('log',(e)=>{
       erros.push({
@@ -40,6 +42,7 @@
         }
       })
     })
+
     window.addEventListener('info',(e)=>{
       erros.push({
         addEventInfo:{
@@ -47,15 +50,17 @@
         }
       })
     })
-    window.addEventListener('assert',(e)=>{
-      erros.push({
-        addEventAssert:{
-          messageE: e.message,
-        }
-      })
-    })
 
 
+  } catch (ex) {
+    window.alert(
+      ex.message + '  \n' +
+      ex.stack,
+    );
+  }
+
+
+  try {
     window.addEventListener('error',(e)=>{
       erros.push({
         addEventErr:{
@@ -69,9 +74,19 @@
         }
       })
     })
+  } catch (ee) {
+    erros.push('Não vai dá!!!');
+  }
 
-    
+
+
+
+
+
     try {
+
+
+
 
 class MenuContexto {
   #menus = [];
@@ -606,6 +621,35 @@ class MenuContexto {
       })
     }
 
+    class TesteTV {
+      #nome;
+      #area;
+      varPublica = 'varPublica';
+
+      constructor(nome, area){
+        this.nome = nome;
+        this.area = area;
+      }
+
+      get nome(){
+        return this.#nome;
+      }
+
+      set nome(nome){
+        this.#nome = `${nome}`;
+      }
+
+      get area(){
+        return this.#area;
+      }
+
+      set area(area){
+        this.#area = Number(area);
+      }
+    }
+
+
+
   </script>
   <title>contexto</title>
 </head>
@@ -715,10 +759,22 @@ class MenuContexto {
     </div>
     <p>Não somente poderá navegar usando o mouse como também poderá usar o teclado apertando as telas cima, baixo, direita, esquerda, espaço e enter intuitivamente além de poder usar teclas de atalho para acioná-las sem precisar abrir o menu.</p>
 
-    <button onclick="setPre()" type="button" id="botaohtv" class="btn btn-primary" hidden data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <button onclick="setPre()" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
       Exibir Log!
     </button>
-
+    <button onclick="metodoTV()" type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModala">
+      Metodo TV!
+    </button>
+    <button onclick="cometerErro()" type="button" class="btn btn-danger">
+      Cometer Erro!
+    </button>
+    <button onclick="temDespejo()" type="button" class="btn btn-info">
+      Tem Despejo?
+    </button>
+    <button onclick="temVarGlobal()" type="button" class="btn btn-info">
+      Tem Variável global?
+    </button>
+    <br />
 
   </div>
 
@@ -739,11 +795,50 @@ class MenuContexto {
     </div>
   </div>
 
+  <div class="modal fade" id="exampleModala" tabindex="-1" aria-labelledby="exampleModalaLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalaLabel">Log:</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <pre id="preTeste"></pre>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
     document.getElementById('tv').innerHTML += " Mas por estar em uma TV terá que dar duplo click.";
-    document.getElementById('botaohtv').hidden = false;
     function setPre(){
       document.getElementById('preErr').innerHTML = JSON.stringify(erros,0,2);
+    }
+    function metodoTV(){
+      let pre = document.getElementById('preTeste');
+      let tv = new TesteTV('Smart', 22);
+      pre.innerHTML = JSON.stringify(tv,0,2);
+      pre.innerHTML += `\nNome: ${tv.nome}, Area: ${tv.area}`;
+      tv.nome = 'SmartTV';
+      tv.area = 55;
+      pre.innerHTML += `\nNome: ${tv.nome}, Area: ${tv.area}`;
+    }
+    function temDespejo(){
+      if(document.getElementById('despejo') == null){
+        window.alert('NÃO EXISTE!!!');
+      } else {
+        window.alert('EXISTE SIM!!!');
+      }
+    }
+    function temVarGlobal(){
+      if(typeof erros == typeof undefined){
+        window.alert('NÃO EXISTE!!!');
+      } else {
+        window.alert('EXISTE SIM!!! ' + toString(erros));
+      }
     }
   </script>
 </body>
