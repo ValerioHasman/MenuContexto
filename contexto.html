@@ -374,9 +374,7 @@
   <script>
     if(/TV/i.test(navigator.userAgent)){
       document.getElementById('tv').innerHTML += " Mas por estar em uma TV terá que dar duplo click.";
-      if(erros.length > 0){
-        document.getElementById('botaohtv').hidden = false;
-      }
+      document.getElementById('botaohtv').hidden = false;
     }
     function setPre(){
       document.getElementById('preErr').innerHTML = JSON.stringify(erros,0,2);
