@@ -19,31 +19,26 @@
       background-color: rgb(81, 99, 154);
       height: 15rem;
     }
-    .scripts {
-      font-family: var(--bs-font-monospace);
-    }
   </style>
   <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.js"></script>
   <script defer src="https://getbootstrap.com/docs/5.3/assets/js/color-modes.js"></script>
-  <script defer src="https://valeriohasman.github.io/MenuContexto/MenuContexto.js"></script>
-  <script defer src="contexto.js"></script>
+  <script defer src="contextoEhTV1.js"></script>
+
   <title>contexto</title>
 </head>
 
 <body>
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-      <symbol id="circle-half" viewBox="0 0 16 16">
-        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"></path>
-      </symbol>
-      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
-        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"></path>
-        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path>
-      </symbol>
-      <symbol id="sun-fill" viewBox="0 0 16 16">
-        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
-      </symbol>
-    </svg>  
+    <symbol id="circle-half" viewBox="0 0 16 16">
+      <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"></path>
+    </symbol>
+    <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+      <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"></path>
+      <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path>
+    </symbol>
+    <symbol id="sun-fill" viewBox="0 0 16 16">
+      <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
+    </symbol>
   </svg>
   
   <div class="imgbg desprint"><div></div></div>
@@ -52,7 +47,7 @@
     <nav class="navbar navbar-expand-lg col-12">
       <div class="container-fluid">
         <a class="navbar-brand p-0" href="https://valeriohasman.github.io/portfolio/Porta-F%C3%B3lio.html">
-          <img class="" src="https://icons.getbootstrap.com/assets/icons/journal-code.svg" alt="Bootstrap" width="40" height="40">
+          <img src="https://icons.getbootstrap.com/assets/icons/journal-code.svg" alt="Bootstrap" width="40" height="40">
           Porta-fólio
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -127,62 +122,69 @@
   <div class="container">
     <h1 class="m-5 text-center">Menu De Contexto <i class="bi bi-menu-button-wide"></i></h1>
     <p>Uma classe JavaScript <i class="bi bi-filetype-js"></i> que possibilita a criação de menu de contexto para inúmeros elementos.</p>
-    <h2 class="mt-5">Usabilidade</h2>
+    <h2>Usabilidade</h2>
     <p>Abaixo temos dois exemplos para esta página, clicando com o botão direito do mouse poderá exibi-las.<span class="fst-italic" id="tv"></span></p>
     <div class="container">
-      <div class="row justify-content-between">
-        <div class="col-12 col-md-6 mb-3">
-          <div class="rounded border border-secondary " id="caixabox"></div>
-        </div>
-        <div class="col-12 col-md-6 mb-3">
-          <div class="rounded border border-secondary " id="caixadox"></div>
-        </div>
+      <div class="row mb-4 justify-content-evenly">
+        <div class="col-12 col-md-5 rounded border border-secondary mb-3" id="caixabox"></div>
+        <div class="col-12 col-md-5 rounded border border-secondary mb-3" id="caixadox"></div>
       </div>
     </div>
     <p>Não somente poderá navegar usando o mouse como também poderá usar o teclado apertando as telas cima, baixo, direita, esquerda, espaço e enter intuitivamente além de poder usar teclas de atalho para acioná-las sem precisar abrir o menu.</p>
 
-    <h2 class="mt-5">Instanciando o objeto</h2>
-    <p>Para a instância do objeto é necessário que se passe um array de objeto para o construtor.  <code><span class="text-danger-emphasis">new</span> <span class="text-success-emphasis">MenuContexto([{},{},…])</span>;</code></p>
-    <p>Os objetos do array devem conter um 'alvo' que seja o id do elemento e o 'dado' que contem as informações do menu de contexto.</p>
-    <div class="container">
-      <div class="row justify-content-between">
-        <div class="col-12 mb-3">
-          <textarea class="form-control scripts" id="instancia1" spellcheck="false" readonly rows="10"></textarea>
-        </div>
-      </div>
-    </div>
-    <p>O 'dado' por sua vez pode respeitar o seguinte formato:</p>
-    <div class="container">
-      <div class="row justify-content-between">
-        <div class="col-12 col-md-6 mb-3">
-          <textarea class="form-control scripts" id="instancia2" spellcheck="false" readonly rows="19"></textarea>
-        </div>
-        <div class="col-12 col-md-6 mb-3">
-          <div class="container h-100">
-            <div class="row h-100">
-              <div class="col-12 bg-body rounded border d-flex align-items-center">
-                <img class="img-fluid rounded my-1" src="exemplo.png" alt="Exemplo">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <h3 class="mt-5">Valores aceitos</h3>
-    <p><code>‘imagem:’</code> coloca-se o link da imagem onde pode ser qualquer formato suportado pela tag <code>&lt;img /&gt;</code>.</p>
-    <p><code>‘texto:’</code> nome da ação a se selecionar.</p>
-    <p><code>‘funcao:’</code> função que deve ser ativada ao clicar.</p>
-    <p><code>‘comando:’</code> essa opção aceita tanto uma letra ou número para o "accesskey" (<code>Alt+</code>) quanto um array de objetos que respeite o formato do menu, para que se abra um submenu, podendo ter imagem, texto, função e comando.</p>
-    <p>As quatro opções são facultativas e uma vez passado um objeto vazio é gerado um <code>&lt;hr /&gt;</code> criando um separador de categoria.</p>
-
-    <button onclick="setPre()" type="button" id="botaohtv" class="btn btn-primary" hidden>
-      Para televisão
+    <button id="setPre" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Exibir Log!
     </button>
+    <button id="metodoTV" type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModala">
+      Metodo TV!
+    </button>
+    <button onclick="cometerErro()" type="button" class="btn btn-danger">
+      Cometer Erro!
+    </button>
+    <button id="temDespejo" type="button" class="btn btn-info">
+      Tem Despejo?
+    </button>
+    <button id="temVarGlobal" type="button" class="btn btn-info">
+      Tem Variável global?
+    </button>
+    <br />
 
-    <div class="my-5 py-5"></div>
   </div>
 
-  </body>
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Log:</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <pre id="preErr"></pre>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="exampleModala" tabindex="-1" aria-labelledby="exampleModalaLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalaLabel">Log:</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <pre id="preTeste"></pre>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
 
 </html>
