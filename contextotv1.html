@@ -22,6 +22,8 @@
   </style>
   <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.js"></script>
   <script defer src="https://getbootstrap.com/docs/5.3/assets/js/color-modes.js"></script>
+  <script defer src="event.js"></script>
+  <script defer src="https://valeriohasman.github.io/MenuContexto/MenuContexto.js"></script>
   <script defer src="contextoEhTV1.js"></script>
 
   <title>contexto</title>
@@ -132,19 +134,22 @@
     </div>
     <p>Não somente poderá navegar usando o mouse como também poderá usar o teclado apertando as telas cima, baixo, direita, esquerda, espaço e enter intuitivamente além de poder usar teclas de atalho para acioná-las sem precisar abrir o menu.</p>
 
-    <button id="setPre" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <button id="setPre" type="button" class="btn btn-primary mb-2 me-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
       Exibir Log!
     </button>
-    <button id="metodoTV" type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModala">
+    <button id="metodoTV" type="button" class="btn btn-warning mb-2 me-2" data-bs-toggle="modal" data-bs-target="#exampleModala">
       Metodo TV!
     </button>
-    <button onclick="cometerErro()" type="button" class="btn btn-danger">
+    <button onclick="cometerErro()" type="button" class="btn btn-danger mb-2 me-2">
       Cometer Erro!
     </button>
-    <button id="temDespejo" type="button" class="btn btn-info">
+    <button id="temDespejo" type="button" class="btn btn-info mb-2 me-2">
       Tem Despejo?
     </button>
-    <button id="temVarGlobal" type="button" class="btn btn-info">
+    <button id="temVarGlobal" type="button" class="btn btn-info mb-2 me-2">
+      Tem Variável global?
+    </button>
+    <button id="instanciar" type="button" class="btn btn-info mb-2 me-2">
       Tem Variável global?
     </button>
     <br />
