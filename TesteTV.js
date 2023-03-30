@@ -8,6 +8,14 @@ class TesteTV {
     this.area = area;
   }
 
+  #ehTelevisao(){
+    if(/TV/i.test(navigator.userAgent)){
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   get nome() {
     return this.#nome;
   }
@@ -22,14 +30,6 @@ class TesteTV {
 
   set area(area) {
     this.#area = Number(area);
-  }
-
-  #ehTelevisao(){
-    if(/TV/i.test(navigator.userAgent)){
-      return true;
-    } else {
-      return false;
-    }
   }
 
   mostra(){

@@ -136,33 +136,6 @@
     })
   }
 
-  class TesteTV {
-    #nome;
-    #area;
-    varPublica = 'varPublica';
-
-    constructor(nome, area) {
-      this.nome = nome;
-      this.area = area;
-    }
-
-    get nome() {
-      return this.#nome;
-    }
-
-    set nome(nome) {
-      this.#nome = `${nome}`;
-    }
-
-    get area() {
-      return this.#area;
-    }
-
-    set area(area) {
-      this.#area = Number(area);
-    }
-  }
-
   document.getElementById('tv').innerHTML += " Mas por estar em uma TV terá que dar duplo click.";
 
   document.getElementById('setPre').addEventListener('click', setPre);
@@ -182,7 +155,7 @@
     pre.innerHTML += `\nNome: ${tv.nome}, Area: ${tv.area}`;
     tv.nome = 'SmartTV';
     tv.area = 55;
-    pre.innerHTML += `\nNome: ${tv.nome}, Area: ${tv.area}`;
+    pre.innerHTML += `\nNome: ${tv.nome}, Area: ${tv.area}\n${tv.mostra()}!`;
   }
   function temDespejo() {
     if (document.getElementById('despejo') == null) {
