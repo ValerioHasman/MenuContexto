@@ -139,23 +139,12 @@
   document.getElementById('tv').innerHTML += " Mas por estar em uma TV terá que dar duplo click.";
 
   document.getElementById('setPre').addEventListener('click', setPre);
-  document.getElementById('metodoTV').addEventListener('click', metodoTV);
   document.getElementById('temDespejo').addEventListener('click', temDespejo);
   document.getElementById('temVarGlobal').addEventListener('click', temVarGlobal);
   document.getElementById('instanciar').addEventListener('click', instanciar);
 
   function setPre() {
     document.getElementById('preErr').innerHTML = JSON.stringify(erros, 0, 2);
-  }
-  function metodoTV() {
-    let pre = document.getElementById('preTeste');
-    let tv = new TesteTV('Smart', 22);
-    pre.innerHTML = JSON.stringify(new TesteTV('Smart', 22), 0, 2);
-    pre.innerHTML += JSON.stringify(tv, 0, 2);
-    pre.innerHTML += `\nNome: ${tv.nome}, Area: ${tv.area}`;
-    tv.nome = 'SmartTV';
-    tv.area = 55;
-    pre.innerHTML += `\nNome: ${tv.nome}, Area: ${tv.area}\n${tv.mostra()}!`;
   }
   function temDespejo() {
     if (document.getElementById('despejo') == null) {
@@ -173,7 +162,7 @@
   }
   function instanciar(){
     document.getElementById('instanciar').disabled = true;
-    new MenuContexto([{ alvo: 'caixadox', dado: dadosParaOMenu},{ alvo: 'caixabox', dado: dadosParaOutro}]);
+    new MenuContexto1([{ alvo: 'caixadox', dado: dadosParaOMenu},{ alvo: 'caixabox', dado: dadosParaOutro}]);
   }
 
 
