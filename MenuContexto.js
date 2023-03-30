@@ -10,35 +10,35 @@ class MenuContexto {
 
   constructor(dados) {
     if(document.readyState == 'complete'){
-      this.#DesligadorDeContexto();
-      this.#criaEstiloPadrao();
-      this.#criaDivEncapsuladora();
-      this.#criaAlvo(dados);
-      this.#addEventoMenus();
-      this.#addEventoSubMenus();
-      this.#addEventoItemListas();
-      this.#addEventoItemDropListas();
-      this.#addEventoproximoCimaOuBaixo();
-      this.#addEventoFocos();
-      this.#CriarListaParaFocus(this.#todosIds);
+      this.DesligadorDeContexto();
+      this.criaEstiloPadrao();
+      this.criaDivEncapsuladora();
+      this.criaAlvo(dados);
+      this.addEventoMenus();
+      this.addEventoSubMenus();
+      this.addEventoItemListas();
+      this.addEventoItemDropListas();
+      this.addEventoproximoCimaOuBaixo();
+      this.addEventoFocos();
+      this.CriarListaParaFocus(this.#todosIds);
     } else {
       window.addEventListener("load",()=>{
-        this.#DesligadorDeContexto();
-        this.#criaEstiloPadrao();
-        this.#criaDivEncapsuladora();
-        this.#criaAlvo(dados);
-        this.#addEventoMenus();
-        this.#addEventoSubMenus();
-        this.#addEventoItemListas();
-        this.#addEventoItemDropListas();
-        this.#addEventoproximoCimaOuBaixo();
-        this.#addEventoFocos();
-        this.#CriarListaParaFocus(this.#todosIds);
+        this.DesligadorDeContexto();
+        this.criaEstiloPadrao();
+        this.criaDivEncapsuladora();
+        this.criaAlvo(dados);
+        this.addEventoMenus();
+        this.addEventoSubMenus();
+        this.addEventoItemListas();
+        this.addEventoItemDropListas();
+        this.addEventoproximoCimaOuBaixo();
+        this.addEventoFocos();
+        this.CriarListaParaFocus(this.#todosIds);
       });
     }
   }
 
-  #ehTelevisao(){
+  ehTelevisao(){
     if(/TV/i.test(navigator.userAgent)){
       return true;
     } else {
@@ -46,7 +46,7 @@ class MenuContexto {
     }
   }
 
-  #criaEstiloPadrao(){
+  criaEstiloPadrao(){
     const styleEl = document.createElement("style");
     document.head.appendChild(styleEl);
     const styleSheet = styleEl.sheet;
@@ -64,7 +64,7 @@ class MenuContexto {
     styleSheet.insertRule('.item p {margin: 6px 0 !important;padding-left: 1rem;}',styleSheet.cssRules.length);
   }
 
-  #addEventoFocos(){
+  addEventoFocos(){
     let elementoLi = document.getElementById('despejo').querySelectorAll('li');
     elementoLi.forEach((li)=>{
       li.addEventListener('focus', (e)=>{
@@ -91,7 +91,7 @@ class MenuContexto {
     });
   }
 
-  #CriarListaParaFocus(ids){
+  CriarListaParaFocus(ids){
     let listaLis = [];
     let conta = 0;
 
@@ -113,7 +113,7 @@ class MenuContexto {
     });
   }
 
-  #addEventoproximoCimaOuBaixo(){
+  addEventoproximoCimaOuBaixo(){
     let todos = [];
     this.#todosIds.forEach((id)=>{
       let elemento = document.getElementById(id);
@@ -123,17 +123,17 @@ class MenuContexto {
     todos.forEach((um)=>{
       um.addEventListener('keydown',(e)=>{
         if(e.keyCode == 40){
-          this.#vaiParaFrente(e.target);
+          this.vaiParaFrente(e.target);
         }
         if(e.keyCode == 38){
-          this.#vaiParaTras(e.target);
+          this.vaiParaTras(e.target);
         }
       });
     });
 
   }
 
-  #vaiParaTras(elem){
+  vaiParaTras(elem){
     let posicao = this.#arrayrand.indexOf(elem) - 1;
     if(this.#arrayrand[posicao] == undefined){
       posicao = this.#arrayrand.length - 1;
@@ -141,7 +141,7 @@ class MenuContexto {
     this.#arrayrand[posicao].focus();
   }
 
-  #vaiParaFrente(elem){
+  vaiParaFrente(elem){
     let posicao = this.#arrayrand.indexOf(elem) + 1;
     if(this.#arrayrand[posicao] == undefined){
       posicao = 0;
@@ -149,7 +149,7 @@ class MenuContexto {
     this.#arrayrand[posicao].focus();
   }
 
-  #addEventoItemDropListas(){
+  addEventoItemDropListas(){
     this.#itemDropListas.map((item)=>{
       let focar = item.lastChild.querySelectorAll('li')[0];
       item.addEventListener('mouseenter',()=>{
@@ -160,7 +160,7 @@ class MenuContexto {
       item.addEventListener('keydown', (e)=>{
         if(e.keyCode == 13 ^ e.keyCode == 39 ^ e.keyCode == 32){
           this.#tempoFocusDrop.push(setTimeout(()=>{
-            this.#limparTempoLimite(this.#tempoFocusDrop);
+            this.limparTempoLimite(this.#tempoFocusDrop);
             focar.focus();
           }, 300));
         }
@@ -168,33 +168,33 @@ class MenuContexto {
     });
   }
 
-  #addEventoItemListas(){
+  addEventoItemListas(){
     this.#itemListas.map((item)=>{
       let executar = document.getElementById(item.id);
-      executar.addEventListener('click', ()=>{item.funcao();this.#semcontexto();})
+      executar.addEventListener('click', ()=>{item.funcao();this.semcontexto();})
       executar.addEventListener('keypress', (e)=>{
         if(e.key == 'Enter' ^ e.key == ' '){
-          item.funcao();this.#semcontexto();
+          item.funcao();this.semcontexto();
         }
       }) 
-      executar.addEventListener('mouseenter', ()=>{executar.focus();this.#limparTempoLimite(this.#tempoFocusDrop);})
+      executar.addEventListener('mouseenter', ()=>{executar.focus();this.limparTempoLimite(this.#tempoFocusDrop);})
     });
   }
 
-  #addEventoSubMenus(){
+  addEventoSubMenus(){
     this.#subMenus.map((sub)=>{
       let links = document.getElementById(sub);
       let tempoAbrir = [];
       let tempoFechar = [];
       this.#itemDropListas.push(links);
-      links.addEventListener('mouseenter', ()=>{tempoAbrir.push(this.#comSubContexto(sub+'Menu', tempoFechar, links));});
+      links.addEventListener('mouseenter', ()=>{tempoAbrir.push(this.comSubContexto(sub+'Menu', tempoFechar, links));});
       links.addEventListener('keydown', (e)=>{
         if(e.key == "ArrowRight" ^ e.key == "Enter" ^ e.key == " "){
-          tempoAbrir.push(this.#comSubContexto(sub+'Menu', tempoFechar, links));
+          tempoAbrir.push(this.comSubContexto(sub+'Menu', tempoFechar, links));
         }
         if(e.code == "ArrowLeft"){
           this.#ArrowLeftMenu.push(setTimeout(() => {
-            this.#semSubContexto([sub], this.#ArrowLeftMenu, 0);
+            this.semSubContexto([sub], this.#ArrowLeftMenu, 0);
           }, 0));
         }
       });
@@ -203,15 +203,15 @@ class MenuContexto {
       let nolistas = document.getElementById(sub).querySelectorAll('.item');
       
       listas.forEach((elemento)=>{
-        if(elemento.id != sub & this.#eele(nolistas, elemento)){
-          elemento.addEventListener('mouseenter', ()=>{tempoFechar.push(this.#semSubContexto([sub], tempoAbrir));});
-          elemento.addEventListener('focus', ()=>{tempoFechar.push(this.#semSubContexto([sub], tempoAbrir));});
+        if(elemento.id != sub & this.eele(nolistas, elemento)){
+          elemento.addEventListener('mouseenter', ()=>{tempoFechar.push(this.semSubContexto([sub], tempoAbrir));});
+          elemento.addEventListener('focus', ()=>{tempoFechar.push(this.semSubContexto([sub], tempoAbrir));});
         }
       })
     });
   }
 
-  #eele(nolistas, elemento){
+  eele(nolistas, elemento){
     let eh = false;
     let count = 0;
     nolistas.forEach((inter)=>{
@@ -228,16 +228,16 @@ class MenuContexto {
     return eh;
   }
 
-  #comSubContexto(menu, tempoFechar, links){
-    this.#limparTempoLimite(tempoFechar);
+  comSubContexto(menu, tempoFechar, links){
+    this.limparTempoLimite(tempoFechar);
     return setTimeout(() => {
       let posicaoLink = links.getBoundingClientRect();
-      this.#mostraMenu(posicaoLink.x + posicaoLink.width, posicaoLink.y, menu);
+      this.mostraMenu(posicaoLink.x + posicaoLink.width, posicaoLink.y, menu);
     }, 300);
   }
 
-  #semSubContexto(menu = this.#subMenus, tempoAbrir = [], tempoLimite = 300){
-    this.#limparTempoLimite(tempoAbrir);
+  semSubContexto(menu = this.#subMenus, tempoAbrir = [], tempoLimite = 300){
+    this.limparTempoLimite(tempoAbrir);
     return setTimeout(() => {
       menu.forEach(subMenu => {
         let alvo = document.getElementById(subMenu + 'Menu');
@@ -248,13 +248,13 @@ class MenuContexto {
     }, tempoLimite);
   }
 
-  #limparTempoLimite(arrayTempo){
+  limparTempoLimite(arrayTempo){
     arrayTempo.forEach(tempo => {
       clearTimeout(tempo);
     });
   }
 
-  #addEventoMenus(){
+  addEventoMenus(){
     this.#menus.map((mn)=>{
       let menu = document.getElementById(mn.id);
       menu.onmousedown = (e)=>{ e.stopPropagation() }
@@ -262,35 +262,35 @@ class MenuContexto {
     });
   }
 
-  #criaAlvo(dados){
+  criaAlvo(dados){
     dados.map((link)=>{
       this.#todosIds.push(link.alvo + 'Menu');
-      document.getElementById('despejo').innerHTML += this.#criaMenu(link.dado, link.alvo);
+      document.getElementById('despejo').innerHTML += this.criaMenu(link.dado, link.alvo);
       let alvo= document.getElementById(link.alvo);
       let menu = document.getElementById(link.alvo + 'Menu');
-      if(this.#ehTelevisao()){
-        alvo.addEventListener('dblclick', (e) => { this.#contexto(e, link.alvo + 'Menu'); console.log(e);});
+      if(this.ehTelevisao()){
+        alvo.addEventListener('dblclick', (e) => { this.contexto(e, link.alvo + 'Menu'); console.log(e);});
         alvo.addEventListener('dblclick', () => { document.getElementById(link.alvo + 'Menu').querySelectorAll('li')[0].focus(); });
       } else {
-        alvo.addEventListener('contextmenu', (e) => { this.#contexto(e, link.alvo + 'Menu'); });
+        alvo.addEventListener('contextmenu', (e) => { this.contexto(e, link.alvo + 'Menu'); });
         alvo.addEventListener('contextmenu', () => { document.getElementById(link.alvo + 'Menu').querySelectorAll('li')[0].focus(); });
       }
       this.#menus.push(menu);
     });
   }
 
-  #DesligadorDeContexto(){
-    document.addEventListener('mousedown', () => { this.#semcontexto() });
-    window.addEventListener('blur', () => { this.#semcontexto() });
+  DesligadorDeContexto(){
+    document.addEventListener('mousedown', () => { this.semcontexto() });
+    window.addEventListener('blur', () => { this.semcontexto() });
   }
 
-  #criaDivEncapsuladora(){
+  criaDivEncapsuladora(){
     let despejo = document.createElement("div");
     despejo.setAttribute("id", "despejo");
     document.body.appendChild(despejo);
   }
 
-  #mostraMenu(x, y, id) {
+  mostraMenu(x, y, id) {
     let menu = document.getElementById(id);
     menu.style.display = 'block';
     let larguraMenu = menu.clientWidth;
@@ -310,13 +310,13 @@ class MenuContexto {
     }
   }
   
-  #contexto(e, menu) {
+  contexto(e, menu) {
     e.preventDefault();
-    this.#semcontexto();
-    this.#mostraMenu(e.clientX, e.clientY, menu);
+    this.semcontexto();
+    this.mostraMenu(e.clientX, e.clientY, menu);
   }
 
-  #criaMenu(objetoMenu, idAlvo){
+  criaMenu(objetoMenu, idAlvo){
     let menuInteiro = '';
     menuInteiro += '<div class="quebra" ' + (idAlvo == undefined ? '' : ' id="'+ idAlvo + 'Menu' +'"') +'>\n'+
                     '<div class="conteudo">\n'+
@@ -327,11 +327,11 @@ class MenuContexto {
         menuInteiro += '<hr />'
       } else {
         menuInteiro += '<li tabindex="-1" class="item" role="menuitem" '
-          + (this.#acessarChave(item.comando, item.funcao, idAlvo)) + ' '
-          + (this.#ehObjeto(item.comando) ? `id="${idAlvo}${this.#subMenus.length}Sub"` : '') + '>\n';
-        menuInteiro += '<div class="imagem">' + this.#haImagem(item.imagem) + '</div>\n';
-        menuInteiro += '<div class="texto">' + this.#haTexto(item.texto) + '</div>\n';
-        menuInteiro += '' + this.#doComando(item.comando, idAlvo) + '';
+          + (this.acessarChave(item.comando, item.funcao, idAlvo)) + ' '
+          + (this.ehObjeto(item.comando) ? `id="${idAlvo}${this.#subMenus.length}Sub"` : '') + '>\n';
+        menuInteiro += '<div class="imagem">' + this.haImagem(item.imagem) + '</div>\n';
+        menuInteiro += '<div class="texto">' + this.haTexto(item.texto) + '</div>\n';
+        menuInteiro += '' + this.doComando(item.comando, idAlvo) + '';
         menuInteiro += '</li>\n';
       }
     })
@@ -339,14 +339,14 @@ class MenuContexto {
     return menuInteiro;
   }
   
-  #haTexto(texto){
-    if(this.#ehString(texto)){
+  haTexto(texto){
+    if(this.ehString(texto)){
       return '<p>'+ texto +'</p>';
     }
     return '';
   }
 
-  #haImagem(imagem){
+  haImagem(imagem){
     let mostraImagem = '';
     if(undefined != imagem){
       mostraImagem = '<img src="'+ imagem +'" />'
@@ -354,18 +354,18 @@ class MenuContexto {
     return mostraImagem;
   }
 
-  #ehObjeto(variavel){
+  ehObjeto(variavel){
     return typeof variavel == typeof {};
   }
-  #ehString(variavel){
+  ehString(variavel){
     return typeof variavel == typeof '';
   }
-  #ehFuncao(variavel){
+  ehFuncao(variavel){
     return typeof variavel == typeof (()=>{});
   }
 
-  #acessarChave(comando, funcao, idAlvo){
-    if((this.#ehString(comando) ^ comando == undefined ) & this.#ehFuncao(funcao)){
+  acessarChave(comando, funcao, idAlvo){
+    if((this.ehString(comando) ^ comando == undefined ) & this.ehFuncao(funcao)){
       let idFuncao = idAlvo + 'Fun' + this.#itemListas.length;
       this.#itemListas.push({id: idFuncao, funcao: funcao});
       return `${comando == undefined ? '' : `accesskey="${comando}"`} id="${idFuncao}"`;
@@ -373,16 +373,16 @@ class MenuContexto {
     return '';
   }
 
-  #doComando(comando, id){
+  doComando(comando, id){
 
     let textoComando = '<div class="comando">';
 
-    if(this.#ehString(comando)){
+    if(this.ehString(comando)){
       textoComando += '<pre>Alt+' + comando + '</pre></div>\n';
     }
-    if(this.#ehObjeto(comando)){
+    if(this.ehObjeto(comando)){
       let idLinkSub = id + this.#subMenus.length + 'Sub';
-      textoComando += `<svg xmlns="https://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/></svg></div>\n${this.#criaMenu(comando, idLinkSub)}`;
+      textoComando += `<svg xmlns="https://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/></svg></div>\n${this.criaMenu(comando, idLinkSub)}`;
       this.#subMenus.push(idLinkSub);
     }
     if(undefined == comando){
@@ -391,8 +391,8 @@ class MenuContexto {
     return textoComando;
   }
 
-  #semcontexto() {
-    this.#semSubContexto(undefined,undefined,0);
+  semcontexto() {
+    this.semSubContexto(undefined,undefined,0);
     this.#menus.map((link)=>{
       let alvo = document.getElementById(link.id);
       alvo.style.display = 'none';

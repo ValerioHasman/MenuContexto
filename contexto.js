@@ -7,7 +7,6 @@
 
   if(/TV/i.test(navigator.userAgent)){
     document.getElementById('tv').innerHTML += " Mas por estar em uma TV terá que dar duplo click.";
-    document.getElementById('botaohtv').hidden = false;
   }
 
   function corbg(){
@@ -134,7 +133,3 @@
   new MenuContexto([{ alvo: 'caixadox', dado: dadosParaOMenu},{ alvo: 'caixabox', dado: dadosParaOutro}]);
   
 })()
-
-function setPre(){
-  window.location.href = "https://valeriohasman.github.io/MenuContexto/contextotv1.html";
-}
