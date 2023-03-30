@@ -33,7 +33,7 @@ class TesteTV {
   }
 
   mostra(){
-    return this.#ehTelevisao() ? 'Sim, é tv' : 'Não é tv';
+    return this.ehTelevisao() ? 'Sim, é tv' : 'Não é tv';
   }
 
 }
