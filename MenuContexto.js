@@ -9,7 +9,7 @@ class MenuContexto {
   #ArrowLeftMenu = [];
 
   constructor(dados) {
-    window.addEventListener("load",()=>{
+    if(document.readyState == 'complete'){
       this.#DesligadorDeContexto();
       this.#criaEstiloPadrao();
       this.#criaDivEncapsuladora();
@@ -21,7 +21,21 @@ class MenuContexto {
       this.#addEventoproximoCimaOuBaixo();
       this.#addEventoFocos();
       this.#CriarListaParaFocus(this.#todosIds);
-    });
+    } else {
+      window.addEventListener("load",()=>{
+        this.#DesligadorDeContexto();
+        this.#criaEstiloPadrao();
+        this.#criaDivEncapsuladora();
+        this.#criaAlvo(dados);
+        this.#addEventoMenus();
+        this.#addEventoSubMenus();
+        this.#addEventoItemListas();
+        this.#addEventoItemDropListas();
+        this.#addEventoproximoCimaOuBaixo();
+        this.#addEventoFocos();
+        this.#CriarListaParaFocus(this.#todosIds);
+      });
+    }
   }
 
   #ehTelevisao(){
