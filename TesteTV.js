@@ -8,7 +8,7 @@ class TesteTV {
     this.area = area;
   }
 
-  #ehTelevisao(){
+  ehTelevisao(){
     if(/TV/i.test(navigator.userAgent)){
       return true;
     } else {
