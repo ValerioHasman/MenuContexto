@@ -7,12 +7,17 @@
 :root, [data-bs-theme=light] {
   --temaCor: #ddf;
   --blurCor: rgba(255, 255, 255, 0.7);
+  --negativo: 0;
 }
 [data-bs-theme=dark] {
   --temaCor: #550;
   --blurCor: rgba(0, 0, 0, 0.7);
+  --negativo: 1;
 }
 
+.icone {
+  filter: invert(var(--negativo));
+}
 .bg-grad-nav {
   background-color: transparent;
 }
