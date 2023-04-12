@@ -39,6 +39,6 @@
 }
 .imgbg div{
   background: var(--blurCor);
-  backdrop-filter: blur(8px); 
+  backdrop-filter: blur(0.6rem); 
   height: 100vh;
 }
